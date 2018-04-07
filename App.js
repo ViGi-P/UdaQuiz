@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import reducers from './src/reducers'
 import Root from './src'
 
-export default function App() {
+export default function() {
   return (
     <Provider store={createStore(reducers)}>
       <Root />

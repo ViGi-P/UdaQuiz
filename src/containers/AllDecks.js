@@ -29,7 +29,6 @@ const Text = BtnText.extend`
 `
 
 function mapState({ decks, ...rest }) {
-  console.log('REDUX', { decks, ...rest })
   return { decks }
 }
 

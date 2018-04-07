@@ -1,6 +1,6 @@
 {
   "name": "UdaQuiz",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "eslint": "^4.19.1",
