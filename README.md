@@ -4,6 +4,6 @@ When installation is complete, run `npm start` or `yarn start` and proceed as pe
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-This project has been tested and on the following platforms -
+This project has been tested on the following platforms -
 * IOS - 9.x.x, 10.x.x, 11.x.x
 * Android - 7.x.x
