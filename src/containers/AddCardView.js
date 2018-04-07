@@ -14,7 +14,7 @@ import {
   Row
 } from '../components'
 import { addCard } from '../actions'
-import { screenDimensions } from '../utils/constants'
+import { screenDimensions, baseStyles } from '../utils/constants'
 
 const View = ScrollBody.extend`
   background-color: ${Platform.OS === 'ios' ? 'tomato' : 'white'};
@@ -65,7 +65,7 @@ export const AddCardView = connect(mapState, mapDispatch)(
       const { navigation } = this.props
 
       return (
-        <ViewTransition style={{ flex: 1 }}>
+        <ViewTransition style={baseStyles.flexOne}>
           <View>
             <Header>
               <BackBtn onPress={() => navigation.goBack()}>
@@ -93,7 +93,7 @@ export const AddCardView = connect(mapState, mapDispatch)(
             />
             <Row top={5}>
               <BtnPrimary
-                style={{ flex: 1, marginBottom: Platform.OS === 'ios' ? 0 : 30 }}
+                style={[baseStyles.flexOne, { marginBottom: Platform.OS === 'ios' ? 0 : 30 }]}
                 disabled={!(answer && question)}
                 onPress={this.submit}>
                 <BtnText disabled={!(answer && question)}>Submit</BtnText>

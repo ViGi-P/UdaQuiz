@@ -15,7 +15,7 @@ import {
   BtnText,
   Row
 } from '../components'
-import { screenDimensions } from '../utils/constants'
+import { screenDimensions, baseStyles } from '../utils/constants'
 import { clearLocalNotification, setLocalNotification } from '../utils/functions'
 
 const View = Body.extend`
@@ -59,7 +59,7 @@ export const QuizView = connect(mapState)(
       const { currentCard, showAnswer, correctCount } = this.state
 
       return (
-        <ViewTransition style={{ flex: 1 }}>
+        <ViewTransition style={baseStyles.flexOne}>
           <View>
             <Header>
               <BackBtn onPress={() => navigation.goBack()}>
@@ -75,7 +75,7 @@ export const QuizView = connect(mapState)(
                       <ViewTransition key={item.key}>
                         <PrimaryText
                           size={24}
-                          style={{ paddingLeft: 20, width: screenDimensions.width - 40 }}>
+                          style={[baseStyles.pl20, { width: screenDimensions.width - 40 }]}>
                           {item.key + 1}. {item.question}
                         </PrimaryText>
                         <TextInput
@@ -87,7 +87,7 @@ export const QuizView = connect(mapState)(
                         />
                         {showAnswer && (
                           <ViewTransition>
-                            <PrimaryText size={20} style={{ marginTop: 10, paddingLeft: 20 }}>
+                            <PrimaryText size={20} style={[baseStyles.mt10, baseStyles.pl20]}>
                               Answer : {item.answer}
                             </PrimaryText>
                           </ViewTransition>
@@ -99,7 +99,10 @@ export const QuizView = connect(mapState)(
                   <ViewTransition>
                     <Row top={10}>
                       <BtnPrimary
-                        style={{ flex: 1, marginBottom: Platform.OS === 'ios' ? 0 : 30 }}
+                        style={[
+                          baseStyles.flexOne,
+                          { marginBottom: Platform.OS === 'ios' ? 0 : 30 }
+                        ]}
                         center
                         onPress={() => this.setState({ showAnswer: true }, Keyboard.dismiss)}>
                         <BtnText>Show Answer</BtnText>
@@ -114,7 +117,7 @@ export const QuizView = connect(mapState)(
                     </Row>
                     <Row top={20}>
                       <BtnPrimary
-                        style={{ flex: 1 }}
+                        style={baseStyles.flexOne}
                         center
                         warning
                         onPress={() =>
@@ -129,7 +132,10 @@ export const QuizView = connect(mapState)(
                     </Row>
                     <Row top={20}>
                       <BtnPrimary
-                        style={{ flex: 1, marginBottom: Platform.OS === 'ios' ? 0 : 30 }}
+                        style={[
+                          baseStyles.flexOne,
+                          { marginBottom: Platform.OS === 'ios' ? 0 : 30 }
+                        ]}
                         center
                         danger
                         onPress={() =>
@@ -146,12 +152,7 @@ export const QuizView = connect(mapState)(
               </CardList>
             ) : (
               <ViewTransition
-                style={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flex: 1,
-                  paddingBottom: 50
-                }}>
+                style={[baseStyles.flexOne, baseStyles.pb50, baseStyles.centerContent]}>
                 <PrimaryText size={32}>Score</PrimaryText>
                 <PrimaryText size={24}>{Math.ceil(correctCount / cards.length * 100)}%</PrimaryText>
                 <Row top={20} justifyContent="space-around">

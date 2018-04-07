@@ -3,7 +3,7 @@ import { Platform, Keyboard } from 'react-native'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { ViewTransition, BtnPrimary, BtnText, Body } from '../components'
-import { screenDimensions } from '../utils/constants'
+import { screenDimensions, baseStyles } from '../utils/constants'
 import { addDeck, selectDeck } from '../actions'
 
 const View = Body.extend`
@@ -62,7 +62,7 @@ export const AddDeck = connect(mapState, mapDispatch)(
       const { newTitle } = this.state
 
       return (
-        <ViewTransition style={{ flex: 1 }}>
+        <ViewTransition style={baseStyles.flexOne}>
           <View>
             <TextInput
               placeholder="Type a title for the new deck"

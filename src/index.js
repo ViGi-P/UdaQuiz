@@ -1,11 +1,13 @@
 import React from 'react'
-import { Platform, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
+import { Platform, StyleSheet, Modal, ActivityIndicator } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import { Constants } from 'expo'
 import { AllDecks, AddDeck, DeckView, AddCardView, QuizView } from './containers'
 import { StatBar, Body } from './components'
 import { setLocalNotification } from './utils/functions'
+import { baseStyles } from './utils/constants'
 
 const View = Body.extend`
   background-color: tomato;
@@ -90,13 +92,22 @@ const Stack = StackNavigator(
   }
 )
 
-export default function() {
+function mapState({ loading }) {
+  return { loading }
+}
+
+export default connect(mapState)(function({ loading }) {
   setLocalNotification()
 
   return (
     <View>
       <StatBar backgroundColor="tomato" barStyle="light-content" />
       <Stack />
+      <Modal transparent animationType="fade" visible={loading}>
+        <View style={baseStyles.centerContent}>
+          <ActivityIndicator color="white" size="large" />
+        </View>
+      </Modal>
     </View>
   )
-}
+})

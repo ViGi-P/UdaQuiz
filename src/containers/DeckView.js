@@ -15,6 +15,7 @@ import {
 } from '../components'
 import { deleteDeck } from '../actions'
 import { TOGGLE_LOAD } from '../actions/types'
+import { baseStyles } from '../utils/constants'
 
 const View = Body.extend`
   background-color: ${Platform.OS === 'ios' ? 'tomato' : 'white'};
@@ -50,7 +51,7 @@ export const DeckView = connect(mapState, mapDispatch)(
       const { navigation, deck, decks, deleteDeck } = this.props
 
       return (
-        <ViewTransition style={{ flex: 1 }}>
+        <ViewTransition style={baseStyles.flexOne}>
           <View>
             <Header>
               <BackBtn onPress={() => navigation.goBack()}>
@@ -68,7 +69,7 @@ export const DeckView = connect(mapState, mapDispatch)(
               <Row top={15}>
                 <BtnPrimary
                   disabled={deck.cards.length === 0}
-                  style={{ flex: 1 }}
+                  style={baseStyles.flexOne}
                   center
                   onPress={() => navigation.navigate('QuizView')}>
                   <BtnText disabled={deck.cards.length === 0}>Start Quiz</BtnText>
@@ -77,7 +78,7 @@ export const DeckView = connect(mapState, mapDispatch)(
               <Row top={20}>
                 <BtnPrimary
                   danger
-                  style={{ flex: 1 }}
+                  style={baseStyles.flexOne}
                   center
                   onPress={() => deleteDeck(decks, deck.key)}>
                   <BtnText danger>Delete Deck</BtnText>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Platform } from 'react-native'
 import { ViewTransition, Body, BtnPrimary, BtnText, PrimaryText } from '../components'
 import { getDecks, selectDeck } from '../actions'
-import { screenDimensions } from '../utils/constants'
+import { screenDimensions, baseStyles } from '../utils/constants'
 
 const View = Body.extend`
   background-color: ${Platform.OS === 'ios' ? 'tomato' : 'white'};
@@ -59,7 +59,7 @@ export const AllDecks = connect(mapState, mapDispatch)(
       const { decks, navigation, selectDeck } = this.props
 
       return (
-        <ViewTransition style={{ flex: 1 }}>
+        <ViewTransition style={baseStyles.flexOne}>
           <View>
             <FlatList
               data={decks}
@@ -76,7 +76,7 @@ export const AllDecks = connect(mapState, mapDispatch)(
             />
             {decks.length === 0 && (
               <View>
-                <PrimaryText style={{ marginBottom: 20 }}>No decks found</PrimaryText>
+                <PrimaryText style={baseStyles.mb20}>No decks found</PrimaryText>
                 <BtnPrimary onPress={() => navigation.navigate('AddDeck')}>
                   <BtnText>Add Deck</BtnText>
                 </BtnPrimary>
