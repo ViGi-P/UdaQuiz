@@ -8,7 +8,7 @@
     "jest-expo": "25.1.0",
     "prettier": "1.15.1",
     "react-native-scripts": "1.14.1",
-    "react-test-renderer": "16.6.0"
+    "react-test-renderer": "16.6.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "expo": "25.1.2",
-    "react": "16.6.0",
+    "react": "16.6.1",
     "react-native": "0.57.4",
     "react-navigation": "1.6.1",
     "react-redux": "5.1.0",
