@@ -6,7 +6,7 @@
     "eslint": "4.19.1",
     "eslint-config-universe": "1.0.7",
     "jest-expo": "25.1.0",
-    "prettier": "1.16.0",
+    "prettier": "1.19.1",
     "react-native-scripts": "1.14.1",
     "react-test-renderer": "16.7.0"
   },
